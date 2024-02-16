@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_max"
+    android:background="@color/background_black"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/login_icon_height"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_icon"
+        app:tint="@color/light_green"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tfUser"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/text_box_height"
+        app:layout_constraintTop_toBottomOf="@id/imgLogin"
+        app:layout_constraintStart_toStartOf="@id/imgLogin"
+        app:layout_constraintEnd_toEndOf="@id/imgLogin"
+        android:layout_marginTop="@dimen/margin_max"
+        android:padding="@dimen/padding_min"
+        android:background="@drawable/rounded_corner_white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUser"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivUser"
+                android:hint="@string/username"/>
+
+            <ImageView
+                android:id="@+id/ivUser"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/etUser"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_person"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tfPass"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/text_box_height"
+        app:layout_constraintTop_toBottomOf="@id/tfUser"
+        app:layout_constraintStart_toStartOf="@id/tfUser"
+        app:layout_constraintEnd_toEndOf="@id/tfUser"
+        android:layout_marginTop="@dimen/margin_max"
+        android:padding="@dimen/padding_min"
+        android:background="@drawable/rounded_corner_white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPass"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivPass"
+                android:inputType="textPassword"
+                android:hint="@string/passwd"/>
+
+            <ImageView
+                android:id="@+id/ivPass"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/etPass"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_eye"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbRememberUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tfPass"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="@id/imgLogin"
+        app:layout_constraintEnd_toEndOf="@id/imgLogin"
+        android:text="@string/remember_user"
+        android:textColor="@color/white"
+        android:checked="false"
+        android:buttonTint="@color/light_green"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@id/cbRememberUser"
+        app:layout_constraintBottom_toBottomOf="@id/btnSignin"
+        app:layout_constraintStart_toStartOf="@id/imgLogin"
+        app:layout_constraintEnd_toEndOf="@id/imgLogin"
+        android:text="@string/login"
+        android:backgroundTint="@color/light_green"/>
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="@id/imgLogin"
+        app:layout_constraintEnd_toEndOf="@id/imgLogin"
+        android:text="@string/signin"
+        android:backgroundTint="@color/light_grey"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
