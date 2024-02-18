@@ -9,22 +9,25 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
-import com.wakalas.spotifyapp.databinding.ItemPlaylistBinding
+import com.wakalas.spotifyapp.databinding.ItemPlaylistHomeBinding
 
-class PlaylistAdapter: ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(PlaylistDiffCallback())
+class PlaylistHomeAdapter:
+    ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(PlaylistDiffCallback())
 {
     private lateinit var context: Context
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
-        val binding = ItemPlaylistBinding.bind(view)
+        val binding = ItemPlaylistHomeBinding.bind(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
     {
         context = parent.context
 
-        val view = LayoutInflater.from(context).inflate(R.layout.item_playlist, parent, false)
+        val view = LayoutInflater
+            .from(context)
+            .inflate(R.layout.item_playlist_home, parent, false)
 
         return ViewHolder(view)
     }
@@ -33,9 +36,11 @@ class PlaylistAdapter: ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(Play
     {
         val album = getItem(position)
 
-        with(holder as ViewHolder) {
+        with(holder as ViewHolder)
+        {
 
-            with(binding) {
+            with(binding)
+            {
                 tituloTextView.text = album.titulo
             }
         }
