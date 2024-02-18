@@ -1,7 +1,7 @@
 package com.wakalas.spotifyapp.common.entities
 
 data class PodcastEntity(
-    var id: Long,
+    var podcastId: Long,
     var titulo: String,
     var imagen: String,
     var descripcion: String,

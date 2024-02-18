@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.wakalas.spotifyapp.common.adapters.PlaylistAdapter
+import com.wakalas.spotifyapp.common.adapters.PlaylistHomeAdapter
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentLibraryBinding
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +18,7 @@ import kotlinx.coroutines.withContext
 class LibraryFragment : Fragment()
 {
     private lateinit var mBinding: FragmentLibraryBinding
-    private lateinit var mPlaylistAdapter: PlaylistAdapter
+    private lateinit var mPlaylistAdapter: PlaylistHomeAdapter
     private lateinit var mLinearLayout: LinearLayoutManager
 
     override fun onCreateView(
@@ -39,7 +39,7 @@ class LibraryFragment : Fragment()
 
     private fun setUpRecyclerView()
     {
-        mPlaylistAdapter = PlaylistAdapter()
+        mPlaylistAdapter = PlaylistHomeAdapter()
         mLinearLayout = LinearLayoutManager(requireContext())
 
         mBinding.recyclerView.apply {
