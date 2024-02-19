@@ -1,10 +1,9 @@
-package com.wakalas.spotifyapp
+package com.wakalas.spotifyapp.loginModule
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.wakalas.spotifyapp.databinding.ActivityLoginBinding
-import com.wakalas.spotifyapp.databinding.ActivityMainBinding
 import com.wakalas.spotifyapp.mainModule.MainActivity
 
 class LoginActivity : AppCompatActivity()
@@ -26,11 +25,21 @@ class LoginActivity : AppCompatActivity()
         mBinding.btnLogin.setOnClickListener {
             goToMainActivity()
         }
+
+        mBinding.btnSignin.setOnClickListener {
+            goToSigninActivity()
+        }
     }
 
     private fun goToMainActivity()
     {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToSigninActivity()
+    {
+        val intent = Intent(this, SigninActivity::class.java)
         startActivity(intent)
     }
 }

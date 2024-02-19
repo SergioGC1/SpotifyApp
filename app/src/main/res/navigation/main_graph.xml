@@ -19,5 +19,16 @@
         android:id="@+id/libraryFragment"
         android:name="com.wakalas.spotifyapp.mainModule.libraryModule.LibraryFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_libraryFragment_to_songFragment"
+            app:destination="@id/songFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/songFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.libraryModule.SongFragment"
+        android:label="fragment_song"
+        tools:layout="@layout/fragment_song" />
 </navigation>

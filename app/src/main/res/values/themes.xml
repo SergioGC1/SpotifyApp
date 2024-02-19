@@ -8,7 +8,7 @@
         <item name="colorSecondary">@color/md_theme_light_secondary</item>
         <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
         <item name="colorSecondaryContainer">@color/transparent</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_primary</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_primaryContainer</item>
         <item name="colorTertiary">@color/md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
         <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>

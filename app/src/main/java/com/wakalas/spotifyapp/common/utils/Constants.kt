@@ -5,15 +5,16 @@ object Constants
     // Routes
     const val BASE_URL = "http://lab7.navelsystems.com"
 
-    // Playlist
+    // Playlists
     const val PLAYLISTS_PATH = "/playlists"
+    const val PLAYLIST_PATH = "/playlist"
 
-    // Album
+    // Albumes
     const val ALBUMS_PATH = "/albums"
 
-    // Cancion
+    // Canciones
     const val CANCIONES_PATH = "/canciones"
 
-    // Podcast
+    // Podcasts
     const val PODCASTS_PATH = "/podcasts"
 }
