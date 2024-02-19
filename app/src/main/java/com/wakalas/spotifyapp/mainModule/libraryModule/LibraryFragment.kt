@@ -16,6 +16,7 @@ import com.wakalas.spotifyapp.common.entities.PlaylistEntity
 import com.wakalas.spotifyapp.common.listeners.PlaylistListener
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentLibraryBinding
+import com.wakalas.spotifyapp.mainModule.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,14 +27,12 @@ class LibraryFragment : Fragment(), PlaylistListener
 
     private lateinit var mPlaylistAdapter: PlaylistLibraryAdapter
     private lateinit var mLinearLayout: LinearLayoutManager
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View?
     {
         mBinding = FragmentLibraryBinding.inflate(inflater, container, false)
-
         return mBinding.root
     }
 
