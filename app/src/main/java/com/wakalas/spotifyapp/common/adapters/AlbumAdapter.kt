@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.AlbumEntity
-import com.wakalas.spotifyapp.databinding.ItemAlbumBinding
+import com.wakalas.spotifyapp.databinding.ItemHorizontalBinding
 
 class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffCallback())
 {
@@ -17,7 +17,7 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
     {
-        val binding = ItemAlbumBinding.bind(view)
+        val binding = ItemHorizontalBinding.bind(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
@@ -26,7 +26,7 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
 
         val view = LayoutInflater
             .from(context)
-            .inflate(R.layout.item_album, parent, false)
+            .inflate(R.layout.item_horizontal, parent, false)
 
         return ViewHolder(view)
     }
@@ -40,7 +40,8 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
 
             with(binding)
             {
-                //titleTextView.text = album.titulo
+                tv1.text = album.titulo
+                tv2.text = album.fechaInicioPatrocinio
             }
         }
     }

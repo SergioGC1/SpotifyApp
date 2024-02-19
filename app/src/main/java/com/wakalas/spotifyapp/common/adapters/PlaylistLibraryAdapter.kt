@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
-import com.wakalas.spotifyapp.databinding.ItemPlaylistHomeBinding
 import com.wakalas.spotifyapp.databinding.ItemPlaylistLibraryBinding
 
 class PlaylistLibraryAdapter:
@@ -52,7 +51,7 @@ class PlaylistLibraryAdapter:
     {
         override fun areItemsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean
         {
-            return oldItem.playlistId == newItem.playlistId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean

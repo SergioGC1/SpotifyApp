@@ -1,6 +1,7 @@
 package com.wakalas.spotifyapp.common.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
-import com.wakalas.spotifyapp.databinding.ItemPlaylistHomeBinding
+import com.wakalas.spotifyapp.databinding.ItemHorizontalBinding
 
 class PlaylistHomeAdapter:
     ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(PlaylistDiffCallback())
@@ -18,7 +19,7 @@ class PlaylistHomeAdapter:
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
-        val binding = ItemPlaylistHomeBinding.bind(view)
+        val binding = ItemHorizontalBinding.bind(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
@@ -27,21 +28,22 @@ class PlaylistHomeAdapter:
 
         val view = LayoutInflater
             .from(context)
-            .inflate(R.layout.item_playlist_home, parent, false)
+            .inflate(R.layout.item_horizontal, parent, false)
 
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
     {
-        val album = getItem(position)
+        val playlist = getItem(position)
 
         with(holder as ViewHolder)
         {
 
             with(binding)
             {
-                tituloTextView.text = album.titulo
+                tv1.text = playlist.titulo
+                tv2.text = playlist.numeroCanciones.toString()
             }
         }
     }
@@ -50,7 +52,7 @@ class PlaylistHomeAdapter:
     {
         override fun areItemsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean
         {
-            return oldItem.playlistId == newItem.playlistId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean

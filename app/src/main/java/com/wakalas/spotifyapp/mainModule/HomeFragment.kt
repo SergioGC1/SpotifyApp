@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.wakalas.spotifyapp.common.adapters.AlbumAdapter
 import com.wakalas.spotifyapp.common.adapters.PlaylistHomeAdapter
 import com.wakalas.spotifyapp.common.adapters.PodcastAdapter
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
@@ -22,6 +23,7 @@ class HomeFragment : Fragment()
     private lateinit var mBinding: FragmentHomeBinding
     private lateinit var mPlaylistAdapter: PlaylistHomeAdapter
     private lateinit var mPodcastAdapter: PodcastAdapter
+    private lateinit var mAlbumAdapter: AlbumAdapter
     private lateinit var mLinearLayout: LinearLayoutManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,15 +41,16 @@ class HomeFragment : Fragment()
 
         setUpRecyclerViews()
 
-        Log.i("Playlists " , mPlaylistAdapter.toString())
+        Log.i("Playlists " , mPlaylistAdapter.currentList.size.toString())
     }
 
     private fun setUpRecyclerViews(){
 
         playlistsRecyclerView()
         podcastsRecyclerView()
+        albumRecyclerView()
+        Log.i("RECYCLERS","MUESTRAN O NO")
     }
-
 
 
     private fun playlistsRecyclerView()
@@ -87,6 +90,22 @@ class HomeFragment : Fragment()
         getPodcasts()
     }
 
+    private fun albumRecyclerView()
+    {
+        mAlbumAdapter = AlbumAdapter()
+        mLinearLayout = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        mBinding.recyclerAlbum.apply {
+            setHasFixedSize(true)
+            layoutManager = mLinearLayout
+            adapter = mAlbumAdapter
+        }
+        getAlbums()
+    }
+
     private fun getPlaylists()
     {
         lifecycleScope.launch {
@@ -98,6 +117,7 @@ class HomeFragment : Fragment()
 
                 withContext(Dispatchers.Main)
                 {
+                    Log.i("Playlists",playlists.toString())
                     mPlaylistAdapter.submitList(playlists)
                 }
             } catch (e: Exception)
@@ -126,6 +146,24 @@ class HomeFragment : Fragment()
         }
     }
 
+    private  fun getAlbums(){
+        lifecycleScope.launch {
+            try
+            {
+                val result = RetrofitClient.albumService.getAlbums()
+
+                val albums = result.body()!!
+
+                withContext(Dispatchers.Main)
+                {
+                    mAlbumAdapter.submitList(albums)
+                }
+            }catch (e: Exception)
+            {
+                showSnackbar(e.toString())
+            }
+        }
+    }
 
 
     private fun showSnackbar(string: String)
