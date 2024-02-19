@@ -50,7 +50,7 @@ class PlaylistHomeAdapter:
     {
         override fun areItemsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean
         {
-            return oldItem.playlistId == newItem.playlistId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean

@@ -11,25 +11,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.R
-import com.wakalas.spotifyapp.common.entities.PlaylistEntity
-import com.wakalas.spotifyapp.common.listeners.PlaylistListener
+import com.wakalas.spotifyapp.common.entities.SongEntity
 import com.wakalas.spotifyapp.databinding.ItemVerticalBinding
 
-class PlaylistLibraryAdapter(private val listener: PlaylistListener):
-    ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(PlaylistDiffCallback())
+class SongLibraryAdapter: ListAdapter<SongEntity, RecyclerView.ViewHolder>(SongDiffCallback())
 {
     private lateinit var context: Context
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
         val binding = ItemVerticalBinding.bind(view)
-
-        fun setListener(playlistEntity: PlaylistEntity)
-        {
-            binding.root.setOnClickListener {
-                listener.onClick(playlistEntity)
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
@@ -45,17 +36,16 @@ class PlaylistLibraryAdapter(private val listener: PlaylistListener):
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
     {
-        val playlist = getItem(position)
+        val cancion = getItem(position)
         val images = Application.images
 
         with(holder as ViewHolder)
         {
-            setListener(playlist)
 
             with(binding)
             {
-                tvName.text = playlist.titulo
-                tvNumeroCanciones.text = "${playlist.numeroCanciones} canciones"
+                tvName.text = cancion.titulo
+                tvNumeroCanciones.text = cancion.duracionFormat()
 
                 Glide.with(context)
                     .load(images[(images.indices).random()])
@@ -66,14 +56,14 @@ class PlaylistLibraryAdapter(private val listener: PlaylistListener):
         }
     }
 
-    class PlaylistDiffCallback(): DiffUtil.ItemCallback<PlaylistEntity>()
+    class SongDiffCallback(): DiffUtil.ItemCallback<SongEntity>()
     {
-        override fun areItemsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean
+        override fun areItemsTheSame(oldItem: SongEntity, newItem: SongEntity): Boolean
         {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: PlaylistEntity, newItem: PlaylistEntity): Boolean
+        override fun areContentsTheSame(oldItem: SongEntity, newItem: SongEntity): Boolean
         {
             return oldItem == newItem
         }
