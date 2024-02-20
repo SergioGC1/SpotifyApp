@@ -4,6 +4,7 @@ import com.wakalas.spotifyapp.common.database.AlbumService
 import com.wakalas.spotifyapp.common.database.PlaylistService
 import com.wakalas.spotifyapp.common.database.PodcastService
 import com.wakalas.spotifyapp.common.database.SongService
+import com.wakalas.spotifyapp.common.database.UserService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -43,5 +44,14 @@ object RetrofitClient
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(SongService::class.java)
+    }
+
+    val userService: UserService by lazy {
+        Retrofit
+            .Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(UserService::class.java)
     }
 }

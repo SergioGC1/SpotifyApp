@@ -23,12 +23,23 @@ class LoginActivity : AppCompatActivity()
     private fun setListeners()
     {
         mBinding.btnLogin.setOnClickListener {
-            goToMainActivity()
+            if(login())
+            {
+                goToMainActivity()
+            }
         }
 
         mBinding.btnSignin.setOnClickListener {
             goToSigninActivity()
         }
+    }
+
+    private fun login(): Boolean
+    {
+        var accepted = false
+        val username = mBinding.etUser.text.toString().trim()
+
+        return true
     }
 
     private fun goToMainActivity()
