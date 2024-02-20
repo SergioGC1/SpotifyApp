@@ -71,8 +71,7 @@ class FindFragment : Fragment() {
                 val songs = result.body()!!
 
                 withContext(Dispatchers.Main) {
-                    Log.i("CANCIONES", songs.toString())
-                    mSongList = songs // Actualiza la lista de canciones
+                    mSongList = songs
                     mSongAdapter.submitList(songs)
                 }
             } catch (e: Exception) {
