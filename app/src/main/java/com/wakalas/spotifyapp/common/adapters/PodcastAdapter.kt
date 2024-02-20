@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.PodcastEntity
 import com.wakalas.spotifyapp.databinding.ItemPodcastBinding
@@ -31,19 +34,26 @@ class PodcastAdapter: ListAdapter<PodcastEntity, RecyclerView.ViewHolder>(Podcas
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
-    {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val podcast = getItem(position)
-
+        val images = Application.images
         with(holder as ViewHolder) {
-
             with(binding) {
                 titleTextView.text = podcast.titulo
                 descriptionTextView.text = podcast.descripcion
-                yearTextView.text = podcast.anyo
+
+                val year = podcast.anyo.substring(0, 10)
+                yearTextView.text = year
+
+                Glide.with(context)
+                    .load(images[(images.indices).random()])
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .centerCrop()
+                    .into(binding.imageView)
             }
         }
     }
+
 
     class PodcastDiffCallback() : DiffUtil.ItemCallback<PodcastEntity>()
     {

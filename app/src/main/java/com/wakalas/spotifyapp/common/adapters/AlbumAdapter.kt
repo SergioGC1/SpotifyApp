@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.AlbumEntity
 import com.wakalas.spotifyapp.databinding.ItemHorizontalBinding
@@ -34,7 +37,7 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
     {
         val album = getItem(position)
-
+        val images = Application.images
         with(holder as ViewHolder)
         {
 
@@ -42,6 +45,11 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
             {
                 tv1.text = album.titulo
                 tv2.text = album.fechaInicioPatrocinio
+                Glide.with(context)
+                    .load(images[(images.indices).random()])
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .centerCrop()
+                    .into(binding.imageView)
             }
         }
     }
