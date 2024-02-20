@@ -6,14 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.wakalas.spotifyapp.common.adapters.PlaylistHomeAdapter
-import com.wakalas.spotifyapp.common.adapters.SongLibraryAdapter
+import com.wakalas.spotifyapp.common.adapters.SongAdapter
 import com.wakalas.spotifyapp.common.entities.SongEntity
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentFindBinding
@@ -23,7 +20,7 @@ import kotlinx.coroutines.withContext
 
 class FindFragment : Fragment() {
     private lateinit var mBinding: FragmentFindBinding
-    private lateinit var mSongAdapter: SongLibraryAdapter
+    private lateinit var mSongAdapter: SongAdapter
     private lateinit var mSongList: List<SongEntity>
     private lateinit var mLinearLayout: LinearLayoutManager
     override fun onCreateView(
@@ -43,7 +40,7 @@ class FindFragment : Fragment() {
 
     private fun songsRecyclerView()
     {
-        mSongAdapter = SongLibraryAdapter()
+        mSongAdapter = SongAdapter()
         mLinearLayout = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,

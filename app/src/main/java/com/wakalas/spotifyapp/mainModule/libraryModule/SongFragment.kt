@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wakalas.spotifyapp.Application
-import com.wakalas.spotifyapp.common.adapters.SongLibraryAdapter
+import com.wakalas.spotifyapp.common.adapters.SongAdapter
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentSongBinding
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +20,7 @@ class SongFragment : Fragment()
 {
     private lateinit var mBinding: FragmentSongBinding
 
-    private lateinit var mSongAdapter: SongLibraryAdapter
+    private lateinit var mSongAdapter: SongAdapter
     private lateinit var mLinearLayout: LinearLayoutManager
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class SongFragment : Fragment()
 
     private fun setUpRecyclerView()
     {
-        mSongAdapter = SongLibraryAdapter()
+        mSongAdapter = SongAdapter()
         mLinearLayout = LinearLayoutManager(requireContext())
 
         mBinding.recyclerView.apply {

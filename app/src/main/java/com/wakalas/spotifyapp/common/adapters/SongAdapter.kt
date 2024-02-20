@@ -14,7 +14,7 @@ import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.SongEntity
 import com.wakalas.spotifyapp.databinding.ItemVerticalBinding
 
-class SongLibraryAdapter: ListAdapter<SongEntity, RecyclerView.ViewHolder>(SongDiffCallback())
+class SongAdapter: ListAdapter<SongEntity, RecyclerView.ViewHolder>(SongDiffCallback())
 {
     private lateinit var context: Context
 
