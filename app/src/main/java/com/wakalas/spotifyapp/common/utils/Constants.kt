@@ -20,4 +20,5 @@ object Constants
 
     // Usuarios
     const val USUARIOS_PATH = "/usuarios"
+    const val USUARIO_BY_USERNAME_PATH = "/usuarioByUsername"
 }
