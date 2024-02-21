@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.common.entities.UserEntity
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
@@ -49,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
                 Application.user = mUser!!
                 goToMainActivity()
             }
+            else
+            {
+                showSnackbar("Contraseña incorrecta")
+            }
         }
     }
 
@@ -67,9 +72,12 @@ class LoginActivity : AppCompatActivity() {
                     verifyUser()
                 }
             }
-            catch (e: Exception)
+            catch(e: Exception)
             {
-                Log.e("ERROR", "$e")
+                withContext(Dispatchers.Main)
+                {
+                    showSnackbar("El usuario $username no ha sido creado")
+                }
             }
         }
     }
@@ -84,5 +92,10 @@ class LoginActivity : AppCompatActivity() {
     {
         val intent = Intent(this, SigninActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun showSnackbar(string: String)
+    {
+        Snackbar.make(mBinding.root, string, Snackbar.LENGTH_LONG).show()
     }
 }
