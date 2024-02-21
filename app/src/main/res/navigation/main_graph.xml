@@ -12,9 +12,15 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/findFragment"
-        android:name="com.wakalas.spotifyapp.mainModule.FindFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.findModule.FindFragment"
         android:label="fragment_find"
-        tools:layout="@layout/fragment_find" />
+        tools:layout="@layout/fragment_find" >
+        <action
+            android:id="@+id/action_findFragment_to_userPlaylistsFragment"
+            app:destination="@id/userPlaylistsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
         android:id="@+id/libraryFragment"
         android:name="com.wakalas.spotifyapp.mainModule.libraryModule.LibraryFragment"
@@ -31,4 +37,9 @@
         android:name="com.wakalas.spotifyapp.mainModule.libraryModule.SongFragment"
         android:label="fragment_song"
         tools:layout="@layout/fragment_song" />
+    <fragment
+        android:id="@+id/userPlaylistsFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.findModule.UserPlaylistsFragment"
+        android:label="fragment_user_playlists"
+        tools:layout="@layout/fragment_user_playlists" />
 </navigation>

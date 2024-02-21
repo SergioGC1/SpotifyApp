@@ -76,9 +76,8 @@ class LibraryFragment : Fragment(), PlaylistListener
     private fun getPlaylists()
     {
         lifecycleScope.launch {
-            try
-            {
-                val result = RetrofitClient.playlistService.getPlaylists()
+            try {
+                val result = RetrofitClient.playlistService.getPlaylistByUser(Application.user.id)
 
                 val playlists = result.body()
 

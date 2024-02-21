@@ -2,18 +2,9 @@
     <string name="app_name">SpotifyApp</string>
     <string name="username">Usuario</string>
     <string name="passwd">Contraseña</string>
-    <string name="remember_user">Recordar Usuario</string>
     <string name="login">Iniciar Sesión</string>
     <string name="signin">Registrarse</string>
-    <string name="player">Reproductor</string>
     <string name="library">Biblioteca</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="exitos">Exitos</string>
-    <string name="most_listened">Las Canciones Más Escuchadas del momento</string>
-    <string name="songname"><![CDATA[<SongName>]]></string>
-    <string name="artistname"><![CDATA[<ArtistName>]]></string>
-    <string name="max_time">9:59</string>
     <string name="home">Home</string>
     <string name="find">Find</string>
-    <string name="buscar">Buscar cancion...</string>
 </resources>
