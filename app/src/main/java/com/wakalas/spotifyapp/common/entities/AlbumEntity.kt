@@ -1,7 +1,7 @@
 package com.wakalas.spotifyapp.common.entities
 
 data class AlbumEntity(
-    var albumId: Long,
+    var id: Long,
     var titulo: String,
     var imagen: String,
     var patrocinado: Boolean,

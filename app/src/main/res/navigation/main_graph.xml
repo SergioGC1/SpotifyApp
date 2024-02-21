@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/findFragment"
-        android:name="com.wakalas.spotifyapp.mainModule.findModule.FindFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.findModule.FindSongFragment"
         android:label="fragment_find"
         tools:layout="@layout/fragment_find" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.wakalas.spotifyapp.mainModule.libraryModule.LibraryFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.libraryModule.LibraryPlaylistFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" >
         <action
@@ -34,12 +34,12 @@
     </fragment>
     <fragment
         android:id="@+id/songFragment"
-        android:name="com.wakalas.spotifyapp.mainModule.libraryModule.SongFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.libraryModule.LibrarySongFragment"
         android:label="fragment_song"
         tools:layout="@layout/fragment_song" />
     <fragment
         android:id="@+id/userPlaylistsFragment"
-        android:name="com.wakalas.spotifyapp.mainModule.findModule.UserPlaylistsFragment"
+        android:name="com.wakalas.spotifyapp.mainModule.findModule.FindPlaylistFragment"
         android:label="fragment_user_playlists"
         tools:layout="@layout/fragment_user_playlists" />
 </navigation>

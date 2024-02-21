@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.R
-import com.wakalas.spotifyapp.common.adapters.SongAdapter
 import com.wakalas.spotifyapp.common.adapters.SongFindAdapter
 import com.wakalas.spotifyapp.common.entities.SongEntity
 import com.wakalas.spotifyapp.common.listeners.SongListener
@@ -23,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class FindFragment : Fragment(), SongListener {
+class FindSongFragment : Fragment(), SongListener {
     private lateinit var mBinding: FragmentFindBinding
     private lateinit var mSongAdapter: SongFindAdapter
     private lateinit var mSongList: List<SongEntity>

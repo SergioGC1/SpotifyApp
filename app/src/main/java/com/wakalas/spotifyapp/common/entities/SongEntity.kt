@@ -12,7 +12,7 @@ data class SongEntity(
     {
         val minutes = duracion / 60
         val seconds = duracion % 60
-        var secondsString: String = seconds.toString()
+        var secondsString = seconds.toString()
 
         if(seconds < 10)
         {

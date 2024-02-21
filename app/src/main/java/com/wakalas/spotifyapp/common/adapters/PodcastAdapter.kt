@@ -59,7 +59,7 @@ class PodcastAdapter: ListAdapter<PodcastEntity, RecyclerView.ViewHolder>(Podcas
     {
         override fun areItemsTheSame(oldItem: PodcastEntity, newItem: PodcastEntity): Boolean
         {
-            return oldItem.podcastId == newItem.podcastId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: PodcastEntity, newItem: PodcastEntity): Boolean

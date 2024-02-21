@@ -19,7 +19,6 @@ object Constants
     const val CANCIONES_PATH = "/canciones"
 
     // Podcasts
-    const val PODCASTS_PATH = "/podcasts"
     const val PODCASTS_USUARIO_PATH = "/usuario/{id}/podcasts"
 
     // Usuarios

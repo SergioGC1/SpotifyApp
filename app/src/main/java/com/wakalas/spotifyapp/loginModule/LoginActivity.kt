@@ -15,12 +15,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity()
+{
     private lateinit var mBinding: ActivityLoginBinding
 
     private var mUser: UserEntity? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityLoginBinding.inflate(layoutInflater)
@@ -29,13 +31,47 @@ class LoginActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun setListeners() {
+    private fun setListeners()
+    {
         mBinding.btnLogin.setOnClickListener {
             login()
         }
 
         mBinding.btnSignin.setOnClickListener {
             goToSigninActivity()
+        }
+    }
+
+    private fun login()
+    {
+        val username = mBinding.etUser.text.toString().trim()
+        val passwd = mBinding.etPass.text.toString()
+
+        if(username.isNotEmpty() && passwd.isNotEmpty())
+        {
+            lifecycleScope.launch {
+                try
+                {
+                    val result = RetrofitClient.userService.getUser(username)
+                    mUser = result.body()!!
+
+                    withContext(Dispatchers.Main)
+                    {
+                        verifyUser()
+                    }
+                }
+                catch(e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+                        showSnackbar("El usuario $username no ha sido creado")
+                    }
+                }
+            }
+        }
+        else
+        {
+            showSnackbar("Se deben rellenar los campos")
         }
     }
 
@@ -53,31 +89,6 @@ class LoginActivity : AppCompatActivity() {
             else
             {
                 showSnackbar("Contraseña incorrecta")
-            }
-        }
-    }
-
-    private fun login()
-    {
-        val username = mBinding.etUser.text.toString().trim()
-
-        lifecycleScope.launch {
-            try
-            {
-                val result = RetrofitClient.userService.getUser(username)
-                mUser = result.body()!!
-
-                withContext(Dispatchers.Main)
-                {
-                    verifyUser()
-                }
-            }
-            catch(e: Exception)
-            {
-                withContext(Dispatchers.Main)
-                {
-                    showSnackbar("El usuario $username no ha sido creado")
-                }
             }
         }
     }

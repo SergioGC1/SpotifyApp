@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_black"
-    tools:context=".mainModule.libraryModule.SongFragment">
+    tools:context=".mainModule.libraryModule.LibrarySongFragment">
 
     <TextView
         android:id="@+id/tvPlaylist"

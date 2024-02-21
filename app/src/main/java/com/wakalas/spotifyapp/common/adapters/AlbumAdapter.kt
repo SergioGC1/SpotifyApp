@@ -58,7 +58,7 @@ class AlbumAdapter: ListAdapter<AlbumEntity, RecyclerView.ViewHolder>(AlbumDiffC
     {
         override fun areItemsTheSame(oldItem: AlbumEntity, newItem: AlbumEntity): Boolean
         {
-            return oldItem.albumId == newItem.albumId
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: AlbumEntity, newItem: AlbumEntity): Boolean

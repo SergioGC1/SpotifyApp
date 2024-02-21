@@ -1,7 +1,6 @@
 package com.wakalas.spotifyapp.mainModule.libraryModule
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,18 +9,18 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wakalas.spotifyapp.Application
-import com.wakalas.spotifyapp.common.adapters.SongAdapter
+import com.wakalas.spotifyapp.common.adapters.SongLibraryAdapter
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentSongBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SongFragment : Fragment()
+class LibrarySongFragment : Fragment()
 {
     private lateinit var mBinding: FragmentSongBinding
 
-    private lateinit var mSongAdapter: SongAdapter
+    private lateinit var mSongLibraryAdapter: SongLibraryAdapter
     private lateinit var mLinearLayout: LinearLayoutManager
 
     override fun onCreateView(
@@ -43,13 +42,13 @@ class SongFragment : Fragment()
 
     private fun setUpRecyclerView()
     {
-        mSongAdapter = SongAdapter()
+        mSongLibraryAdapter = SongLibraryAdapter()
         mLinearLayout = LinearLayoutManager(requireContext())
 
         mBinding.recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = mLinearLayout
-            adapter = mSongAdapter
+            adapter = mSongLibraryAdapter
         }
 
         getSongs()
@@ -68,7 +67,7 @@ class SongFragment : Fragment()
 
                 withContext(Dispatchers.Main)
                 {
-                    mSongAdapter.submitList(songs)
+                    mSongLibraryAdapter.submitList(songs)
                 }
             }
             catch(e: Exception)

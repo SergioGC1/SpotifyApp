@@ -9,13 +9,14 @@ import retrofit2.http.Path
 
 interface SongService
 {
+
+    @Headers("Content-Type: application/json")
+    @GET(Constants.CANCIONES_PATH)
+    suspend fun getSongs(): Response<MutableList<SongEntity>>
+
     @Headers("Content-Type: application/json")
     @GET(Constants.PLAYLIST_PATH + "/{playlistId}" + Constants.CANCIONES_PATH)
     suspend fun getSongsPlaylist(
         @Path("playlistId") playlistId: Long
     ): Response<MutableList<SongEntity>>
-
-    @Headers("Content-Type: application/json")
-    @GET(Constants.CANCIONES_PATH)
-    suspend fun getSongs(): Response<MutableList<SongEntity>>
 }

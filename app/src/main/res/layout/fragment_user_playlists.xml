@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_black"
-    tools:context=".mainModule.findModule.UserPlaylistsFragment">
+    tools:context=".mainModule.findModule.FindPlaylistFragment">
 
     <EditText
         android:id="@+id/findSong"
