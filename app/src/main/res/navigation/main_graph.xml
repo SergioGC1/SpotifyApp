@@ -41,5 +41,9 @@
         android:id="@+id/userPlaylistsFragment"
         android:name="com.wakalas.spotifyapp.mainModule.findModule.FindPlaylistFragment"
         android:label="fragment_user_playlists"
-        tools:layout="@layout/fragment_user_playlists" />
+        tools:layout="@layout/fragment_user_playlists" >
+        <action
+            android:id="@+id/action_userPlaylistsFragment_to_findFragment"
+            app:destination="@id/findFragment" />
+    </fragment>
 </navigation>
