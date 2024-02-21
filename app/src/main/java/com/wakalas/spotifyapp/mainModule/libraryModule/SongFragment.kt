@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wakalas.spotifyapp.Application
@@ -65,14 +66,20 @@ class SongFragment : Fragment()
                 val result = RetrofitClient.songService.getSongsPlaylist(playlist.id)
                 val songs = result.body()
 
-                withContext(Dispatchers.Main) {
+                withContext(Dispatchers.Main)
+                {
                     mSongAdapter.submitList(songs)
                 }
             }
             catch(e: Exception)
             {
-                Log.e("ERROR", "$e")
+                showToast("Error al cargar las canciones")
             }
         }
+    }
+
+    private fun showToast(text: String)
+    {
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 }

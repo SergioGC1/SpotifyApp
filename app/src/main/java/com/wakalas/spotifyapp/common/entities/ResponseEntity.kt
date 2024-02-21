@@ -1,3 +1,3 @@
 package com.wakalas.spotifyapp.common.entities
 
-data class ResponseEntity(val msg: String)
+data class ResponseEntity(var msg: String)
