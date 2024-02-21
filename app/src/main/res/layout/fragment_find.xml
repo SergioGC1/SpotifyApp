@@ -23,6 +23,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_find"
+        app:layout_constraintTop_toTopOf="@id/findSong"
+        app:layout_constraintBottom_toBottomOf="@id/findSong"
+        app:layout_constraintEnd_toEndOf="@id/findSong"
+        app:tint="@color/white"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_search_results"
         android:layout_width="match_parent"
