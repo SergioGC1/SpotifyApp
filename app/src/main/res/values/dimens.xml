@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="no_dp">0dp</dimen>
-    <dimen name="bottom_navigation_height">120dp</dimen>
-    <dimen name="bottom_navigation_icon">56dp</dimen>
-    <dimen name="bar_stroke">2dp</dimen>
     <dimen name="padding_max">36dp</dimen>
     <dimen name="login_icon_height">344dp</dimen>
-    <dimen name="text_box_height">72dp</dimen>
-    <dimen name="margin_max">40dp</dimen>
     <dimen name="padding_min">8dp</dimen>
     <dimen name="button_height">48dp</dimen>
-    <dimen name="exitos_image_height">200dp</dimen>
-    <dimen name="common_margin">16dp</dimen>
-    <dimen name="card_image_size">64dp</dimen>
-    <dimen name="title_text">28sp</dimen>
-    <dimen name="song_image">360dp</dimen>
-    <dimen name="margin_high">32dp</dimen>
-    <dimen name="title_text_min">24sp</dimen>
 </resources>

@@ -10,6 +10,7 @@ class Application: Application()
     {
         lateinit var playlist: PlaylistEntity
         lateinit var user: UserEntity
+        lateinit var cancionId: String
 
         val images = arrayOf(
             "https://www.thisisdig.com/wp-content/uploads/2021/06/californiacation-812x609.jpg",

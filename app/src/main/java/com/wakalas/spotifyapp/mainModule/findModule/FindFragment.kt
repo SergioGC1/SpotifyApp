@@ -1,26 +1,31 @@
-package com.wakalas.spotifyapp.mainModule
+package com.wakalas.spotifyapp.mainModule.findModule
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.wakalas.spotifyapp.Application
+import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.adapters.SongAdapter
+import com.wakalas.spotifyapp.common.adapters.SongFindAdapter
 import com.wakalas.spotifyapp.common.entities.SongEntity
+import com.wakalas.spotifyapp.common.listeners.SongListener
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentFindBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class FindFragment : Fragment() {
+class FindFragment : Fragment(), SongListener {
     private lateinit var mBinding: FragmentFindBinding
-    private lateinit var mSongAdapter: SongAdapter
+    private lateinit var mSongAdapter: SongFindAdapter
     private lateinit var mSongList: List<SongEntity>
     private lateinit var mLinearLayout: LinearLayoutManager
     override fun onCreateView(
@@ -40,7 +45,7 @@ class FindFragment : Fragment() {
 
     private fun songsRecyclerView()
     {
-        mSongAdapter = SongAdapter()
+        mSongAdapter = SongFindAdapter(this)
         mLinearLayout = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,
@@ -89,9 +94,19 @@ class FindFragment : Fragment() {
         }
     }
 
-
     private fun showSnackbar(string: String)
     {
         Snackbar.make(mBinding.root, string, Snackbar.LENGTH_LONG).show()
     }
+
+    override fun onClick(songEntity: SongEntity) {
+        Application.cancionId = songEntity.id.toString()
+        goToSongFragment()
+    }
+
+    private fun goToSongFragment()
+    {
+        findNavController().navigate(R.id.action_findFragment_to_userPlaylistsFragment)
+    }
+
 }

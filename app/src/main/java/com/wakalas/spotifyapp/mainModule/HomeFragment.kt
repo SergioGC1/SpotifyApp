@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.common.adapters.AlbumAdapter
 import com.wakalas.spotifyapp.common.adapters.PlaylistHomeAdapter
 import com.wakalas.spotifyapp.common.adapters.PodcastAdapter
@@ -40,8 +41,6 @@ class HomeFragment : Fragment()
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerViews()
-
-        Log.i("Playlists " , mPlaylistAdapter.currentList.size.toString())
     }
 
     private fun setUpRecyclerViews(){
@@ -49,7 +48,6 @@ class HomeFragment : Fragment()
         playlistsRecyclerView()
         podcastsRecyclerView()
         albumRecyclerView()
-        Log.i("RECYCLERS","MUESTRAN O NO")
     }
 
 
@@ -111,8 +109,8 @@ class HomeFragment : Fragment()
         lifecycleScope.launch {
             try
             {
-                val result = RetrofitClient.playlistService.getPlaylists()
-
+                val result = RetrofitClient.playlistService.getPlaylistByUser(Application.user.id)
+                Log.i("Playlists",RetrofitClient.playlistService.getPlaylistByUser(Application.user.id).toString())
                 val playlists = result.body()!!
 
                 withContext(Dispatchers.Main)
@@ -131,7 +129,7 @@ class HomeFragment : Fragment()
         lifecycleScope.launch {
             try
             {
-                val result = RetrofitClient.podcastService.getPodcasts()
+                val result = RetrofitClient.podcastService.getPodcasts(Application.user.id)
 
                 val podcasts = result.body()!!
 
@@ -150,7 +148,7 @@ class HomeFragment : Fragment()
         lifecycleScope.launch {
             try
             {
-                val result = RetrofitClient.albumService.getAlbums()
+                val result = RetrofitClient.albumService.getAlbumsByUser(Application.user.id)
 
                 val albums = result.body()!!
 
@@ -164,7 +162,6 @@ class HomeFragment : Fragment()
             }
         }
     }
-
 
     private fun showSnackbar(string: String)
     {
