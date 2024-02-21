@@ -36,7 +36,8 @@ class LibraryFragment : Fragment(), PlaylistListener
         return mBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerView()
@@ -56,7 +57,8 @@ class LibraryFragment : Fragment(), PlaylistListener
         getPlaylists()
     }
 
-    private fun getPlaylists() {
+    private fun getPlaylists()
+    {
         lifecycleScope.launch {
             try {
                 val result = RetrofitClient.playlistService.getPlaylists()

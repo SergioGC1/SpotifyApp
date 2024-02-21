@@ -2,12 +2,15 @@ package com.wakalas.spotifyapp
 
 import android.app.Application
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
+import com.wakalas.spotifyapp.common.entities.UserEntity
 
 class Application: Application()
 {
     companion object
     {
         lateinit var playlist: PlaylistEntity
+        lateinit var user: UserEntity
+
         val images = arrayOf(
             "https://www.thisisdig.com/wp-content/uploads/2021/06/californiacation-812x609.jpg",
             "https://i.ebayimg.com/images/g/sBQAAOSwgz5gx9Gu/s-l1600.jpg",
