@@ -92,7 +92,9 @@ class FindPlaylistFragment : Fragment(),PlaylistListener {
     override fun onClick(playlistEntity: PlaylistEntity) {
         lifecycleScope.launch {
             try {
+
                 val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toLong())
+
                 val muestra = result.msg
 
                 withContext(Dispatchers.Main)

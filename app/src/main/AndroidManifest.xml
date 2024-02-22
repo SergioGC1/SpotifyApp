@@ -16,16 +16,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".loginModule.SigninActivity"
-            android:exported="false" />
-        <activity
-            android:name=".loginModule.LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+        android:name=".loginModule.SigninActivity"
+            android:exported="false" />
+        <activity
+            android:name=".loginModule.LoginActivity"
+            android:exported="true">
         </activity>
         <activity
             android:name=".mainModule.MainActivity"
