@@ -7,19 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.wakalas.spotifyapp.Application
+import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.adapters.AlbumAdapter
 import com.wakalas.spotifyapp.common.adapters.PlaylistHomeAdapter
 import com.wakalas.spotifyapp.common.adapters.PodcastAdapter
+import com.wakalas.spotifyapp.common.entities.PlaylistEntity
+import com.wakalas.spotifyapp.common.listeners.PlaylistListener
 import com.wakalas.spotifyapp.common.utils.RetrofitClient
 import com.wakalas.spotifyapp.databinding.FragmentHomeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class HomeFragment : Fragment()
+class HomeFragment : Fragment(), PlaylistListener
 {
     private lateinit var mBinding: FragmentHomeBinding
     private lateinit var mPlaylistAdapter: PlaylistHomeAdapter
@@ -53,7 +57,7 @@ class HomeFragment : Fragment()
 
     private fun playlistsRecyclerView()
     {
-        mPlaylistAdapter = PlaylistHomeAdapter()
+        mPlaylistAdapter = PlaylistHomeAdapter(this)
         mLinearLayout = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.HORIZONTAL,
@@ -166,5 +170,16 @@ class HomeFragment : Fragment()
     private fun showSnackbar(string: String)
     {
         Snackbar.make(mBinding.root, string, Snackbar.LENGTH_LONG).show()
+    }
+
+    override fun onClick(playlistEntity: PlaylistEntity)
+    {
+        Application.playlist = playlistEntity
+        goToSongFragment()
+    }
+
+    private fun goToSongFragment()
+    {
+        findNavController().navigate(R.id.action_homeFragment_to_songFragment)
     }
 }

@@ -13,9 +13,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.wakalas.spotifyapp.Application
 import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
+import com.wakalas.spotifyapp.common.listeners.PlaylistListener
 import com.wakalas.spotifyapp.databinding.ItemHorizontalBinding
 
-class PlaylistHomeAdapter:
+class PlaylistHomeAdapter(private val listener: PlaylistListener):
     ListAdapter<PlaylistEntity, RecyclerView.ViewHolder>(PlaylistDiffCallback())
 {
     private lateinit var context: Context
@@ -23,6 +24,13 @@ class PlaylistHomeAdapter:
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
     {
         val binding = ItemHorizontalBinding.bind(view)
+
+        fun setListener(playlistEntity: PlaylistEntity)
+        {
+            binding.root.setOnClickListener {
+                listener.onClick(playlistEntity)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
@@ -45,6 +53,8 @@ class PlaylistHomeAdapter:
 
             with(binding)
             {
+                setListener(playlist)
+
                 tv1.text = playlist.titulo
                 tv2.text = playlist.numeroCanciones.toString()
                 Glide.with(context)

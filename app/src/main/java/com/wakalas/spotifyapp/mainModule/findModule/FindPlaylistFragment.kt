@@ -93,7 +93,7 @@ class FindPlaylistFragment : Fragment(),PlaylistListener {
         lifecycleScope.launch {
             try {
 
-                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toLong())
+                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toInt())
 
                 val muestra = result.msg
 
