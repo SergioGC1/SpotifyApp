@@ -16,20 +16,20 @@
             android:id="@+id/tvPlaylist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Playlist"
+            android:text="@string/playlist"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/recyclerPlaylist"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/margin_common"
             android:layout_marginTop="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerPlaylist"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="@dimen/recycler2_height"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tvPlaylist"
@@ -42,7 +42,7 @@
             android:id="@+id/tvPodcast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Podcast"
+            android:text="@string/podcast"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -50,12 +50,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/recyclerPodcast"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="@dimen/margin_common"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerPodcast"
             android:layout_width="0dp"
-            android:layout_height="180dp"
+            android:layout_height="@dimen/recycler_height"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tvPodcast"
@@ -68,7 +68,7 @@
             android:id="@+id/tvAlbum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Album"
+            android:text="@string/album"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -76,12 +76,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/recyclerAlbum"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="@dimen/margin_common"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerAlbum"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="@dimen/recycler2_height"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tvAlbum"

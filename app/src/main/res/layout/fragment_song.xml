@@ -12,13 +12,13 @@
     <TextView
         android:id="@+id/tvPlaylist"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/tfheight"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:textSize="36sp"
-        android:text="Playlist"
+        android:text="@string/playlist"
         android:textColor="@color/white"
         android:background="@color/dark_grey"
         />

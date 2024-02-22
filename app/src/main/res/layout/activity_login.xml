@@ -25,11 +25,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfUser"
         android:layout_width="@dimen/no_dp"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/tfheight"
         app:layout_constraintTop_toBottomOf="@id/imgLogin"
         app:layout_constraintStart_toStartOf="@id/imgLogin"
         app:layout_constraintEnd_toEndOf="@id/imgLogin"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/margin_long"
         android:padding="@dimen/padding_min"
         android:background="@drawable/rounded_corner_white"
         >
@@ -67,11 +67,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfPass"
         android:layout_width="@dimen/no_dp"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/tfheight"
         app:layout_constraintTop_toBottomOf="@id/tfUser"
         app:layout_constraintStart_toStartOf="@id/tfUser"
         app:layout_constraintEnd_toEndOf="@id/tfUser"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_common"
         android:padding="@dimen/padding_min"
         android:background="@drawable/rounded_corner_white"
         >

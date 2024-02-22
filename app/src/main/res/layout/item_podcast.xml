@@ -8,12 +8,12 @@
     app:cardUseCompatPadding="true"
     app:cardCornerRadius="8dp"
     android:backgroundTint="@color/dark_grey"
-    android:layout_margin="16dp">
+    android:layout_margin="@dimen/margin_common">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="@dimen/margin_common">
 
         <ImageView
             android:id="@+id/imageView"
@@ -36,8 +36,8 @@
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/margin_common"
+            android:paddingEnd="@dimen/margin_common"
             android:paddingBottom="8dp"/>
 
         <TextView
@@ -51,8 +51,8 @@
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView"
             app:layout_constraintEnd_toEndOf="parent"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/margin_common"
+            android:paddingEnd="@dimen/margin_common"
             android:paddingBottom="8dp"/>
 
         <TextView

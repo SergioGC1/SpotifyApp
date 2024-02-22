@@ -5,4 +5,10 @@
     <dimen name="login_icon_height">344dp</dimen>
     <dimen name="padding_min">8dp</dimen>
     <dimen name="button_height">48dp</dimen>
+    <dimen name="tfheight">72dp</dimen>
+    <dimen name="margin_long">24dp</dimen>
+    <dimen name="margin_common">16dp</dimen>
+    <dimen name="vertical_card_height">80dp</dimen>
+    <dimen name="recycler_height">180dp</dimen>
+    <dimen name="recycler2_height">220dp</dimen>
 </resources>

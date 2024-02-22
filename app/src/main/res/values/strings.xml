@@ -7,4 +7,15 @@
     <string name="library">Biblioteca</string>
     <string name="home">Home</string>
     <string name="find">Find</string>
+    <string name="mail">Mail</string>
+    <string name="atras">Atras</string>
+    <string name="search">Search</string>
+    <string name="playlist">Playlist</string>
+    <string name="podcast">Podcast</string>
+    <string name="album">Album</string>
+    <string name="playlists">Playlists</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="crear">Crear</string>
+    <string name="favorita_2">favorita_2</string>
+    <string name="_0_canciones">0 canciones</string>
 </resources>

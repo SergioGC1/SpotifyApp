@@ -13,13 +13,13 @@
     <TextView
         android:id="@+id/tvPlaylist"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/tfheight"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:textSize="36sp"
-        android:text="Playlists"
+        android:text="@string/playlists"
         android:textColor="@color/white"
         android:background="@color/dark_grey"
         />
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margin_common"
         app:maxImageSize="42dp"
         android:src="@drawable/ic_add"
         app:tint="@color/white"
@@ -88,9 +88,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="16dp"
-                android:padding="16dp"
-                android:hint="Playlist"
+                android:layout_margin="@dimen/margin_common"
+                android:padding="@dimen/margin_common"
+                android:hint="@string/playlist"
                 android:background="@drawable/rounded_corner_white"
                 />
 
@@ -101,10 +101,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnAdd"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginBottom="@dimen/margin_common"
+                android:layout_marginStart="@dimen/margin_common"
                 android:layout_marginEnd="4dp"
-                android:text="Cancelar"
+                android:text="@string/cancelar"
                 android:backgroundTint="@color/light_grey"
                 />
 
@@ -116,10 +116,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btnCancel"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="@dimen/margin_common"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="16dp"
-                android:text="Crear"
+                android:layout_marginEnd="@dimen/margin_common"
+                android:text="@string/crear"
                 android:backgroundTint="@color/light_green"
                 />
 
