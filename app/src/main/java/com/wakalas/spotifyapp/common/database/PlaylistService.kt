@@ -27,6 +27,6 @@ interface PlaylistService
     @POST(Constants.PLAYLIST_ADD_SONG_PATH)
     suspend fun addSongToPlaylist(
         @Path("playlistId") playlistId: Long,
-        @Path("cancionId") cancionId: Long
+        @Path("cancionId") cancionId: Int
     ): ResponseEntity
 }

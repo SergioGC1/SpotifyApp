@@ -91,8 +91,8 @@ class FindPlaylistFragment : Fragment(),PlaylistListener {
     override fun onClick(playlistEntity: PlaylistEntity) {
         lifecycleScope.launch {
             try {
-                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toLong())
-
+                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toInt())
+                Log.i("AÑADIR CANCION", playlistEntity.id.toString() + " " + Application.cancionId)
                 val muestra = result.msg
 
                 showSnackbar(muestra)
