@@ -47,9 +47,62 @@ class SigninActivity : AppCompatActivity()
         val mail = mBinding.etMail.text.toString().trim()
         val passwd = mBinding.etPass.text.toString()
 
-        val user = UserEntity(username = username, password = passwd, email = mail)
-        Log.i("User", user.toString())
-        postUser(user)
+        if(verifiyFields(username, mail, passwd))
+        {
+            val user = UserEntity(username = username, password = passwd, email = mail)
+            postUser(user)
+        }
+    }
+
+    private fun verifiyFields(username: String, mail: String, passwd: String): Boolean
+    {
+        if(username.isNotEmpty() && mail.isNotEmpty() && passwd.isNotEmpty())
+        {
+            if(!username.contains('@'))
+            {
+                if(mail.contains('@'))
+                {
+                    return true
+                }
+                else
+                {
+                    showSnackbar("El mail debe contener @")
+                }
+            }
+            else
+            {
+                showSnackbar("El nombre de usuario no puede contener @")
+            }
+        }
+        else
+        {
+            showSnackbar("Se deben rellenar todos los campos")
+        }
+
+        return false
+    }
+
+    private fun postUser(userEntity: UserEntity)
+    {
+        lifecycleScope.launch {
+            try
+            {
+                val result = RetrofitClient.userService.postUser(userEntity)
+                val responseString = result.msg
+
+                withContext(Dispatchers.Main)
+                {
+                    showSnackbar(responseString)
+                }
+            }
+            catch(e: Exception)
+            {
+                withContext(Dispatchers.Main)
+                {
+                    showSnackbar("Error al registrar un usuario")
+                }
+            }
+        }
     }
 
     private fun goToLoginActivity()
@@ -58,26 +111,6 @@ class SigninActivity : AppCompatActivity()
         startActivity(intent)
     }
 
-    private fun postUser(userEntity: UserEntity) {
-        lifecycleScope.launch {
-            try {
-                val result = RetrofitClient.userService.postUser(userEntity)
-
-                val responseString = result.msg
-
-                if (responseString.contains("correctamente")) {
-                    showSnackbar(responseString)
-                    goToLoginActivity()
-                } else {
-                    showSnackbar(responseString)
-                }
-
-            } catch (e: Exception) {
-                showSnackbar(e.toString())
-                Log.e("Error", e.toString())
-            }
-        }
-    }
     private fun showSnackbar(string: String)
     {
         Snackbar.make(mBinding.root, string, Snackbar.LENGTH_LONG).show()

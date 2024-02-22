@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.wakalas.spotifyapp.Application
+import com.wakalas.spotifyapp.R
 import com.wakalas.spotifyapp.common.adapters.PlaylistLibraryAdapter
 import com.wakalas.spotifyapp.common.entities.PlaylistEntity
 import com.wakalas.spotifyapp.common.listeners.PlaylistListener
@@ -73,7 +75,6 @@ class FindPlaylistFragment : Fragment(),PlaylistListener {
 
                 withContext(Dispatchers.Main)
                 {
-                    Log.i("Playlists",playlists.toString())
                     mPlaylistAdapter.submitList(playlists)
                 }
             } catch (e: Exception)
@@ -91,11 +92,16 @@ class FindPlaylistFragment : Fragment(),PlaylistListener {
     override fun onClick(playlistEntity: PlaylistEntity) {
         lifecycleScope.launch {
             try {
-                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toInt())
-                Log.i("AÑADIR CANCION", playlistEntity.id.toString() + " " + Application.cancionId)
+
+                val result = RetrofitClient.playlistService.addSongToPlaylist(playlistEntity.id, Application.cancionId.toLong())
+
                 val muestra = result.msg
 
-                showSnackbar(muestra)
+                withContext(Dispatchers.Main)
+                {
+                    showSnackbar(muestra)
+                    findNavController().navigate(R.id.action_userPlaylistsFragment_to_findFragment)
+                }
             } catch(e: Exception)
             {
                 showSnackbar(e.toString())
