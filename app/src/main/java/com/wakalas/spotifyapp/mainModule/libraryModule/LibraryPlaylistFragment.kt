@@ -137,10 +137,12 @@ class LibraryPlaylistFragment : Fragment(), PlaylistListener
                     val result = RetrofitClient.playlistService.postPlaylist(userId, playlist)
                     val response = result.body()
 
+                    hideMenu()
+
                     withContext(Dispatchers.Main)
                     {
                         showToast(response!!.msg)
-                        hideMenu()
+                        getPlaylists()
                     }
                 }
                 catch(e: Exception)
